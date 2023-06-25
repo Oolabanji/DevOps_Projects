@@ -88,16 +88,17 @@ After saving and closing the file, i reload Apache so the changes take effect:
 sudo systemctl reload apache2
 
 I created a new file named index.php inside the custom web root folder:
+
 nano /var/www/florintechlampstack/index.php
 
-And I added the following  files which is valid PHP code, inside the file:
+I added the following files which is valid PHP code, inside the file:
 
 <?php
 phpinfo();
 
 Then i saved and close and I refreshed the http://18.118.33.67:80
 
-![phpversion](https://github.com/Oolabanji/DevOps_Projects/assets/136812420/5832838b-5d18-4bf4-968d-212f5228fa63)
+![phpveon](https://github.com/Oolabanji/DevOps_Projects/assets/136812420/857f0951-f218-4c5e-a245-87b4bda06971)
 
 
 
