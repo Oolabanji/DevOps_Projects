@@ -82,16 +82,20 @@ Then I enter http://3.142.201.71:80 on my browser
 In order to test to validate that Nginx can correctly hand .php files off to the PHP processor.
 
 I created a test PHP file in the document root. This is by opening a new file called info.php within the document root in the text editor:
-
 sudo nano /var/www/florintechlemp/info.php
 Type or paste the following lines into the new file. This is valid PHP code that will return information about the server:
-
 <?php
 phpinfo();
+
 Then I access the page in my web browser by visiting public IP address i have set up in the Nginx configuration file, followed by /info.php:
 http://3.142.201.71/info.php
-![phpve](https://github.com/Oolabanji/DevOps_Projects/assets/136812420/d87d475d-67a6-4913-b47d-0ada91261f8e)
+
+
+
 ### RETRIEVING DATA FROM MYSQL DATABASE WITH PHP
+
+![phpve](https://github.com/Oolabanji/DevOps_Projects/assets/136812420/0c39abe8-87a1-4fee-aab6-d22db04708d0)
+
 
 
 
