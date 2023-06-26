@@ -93,8 +93,8 @@ nano /var/www/florintechlampstack/index.php
 
 I added the following files which is valid PHP code, inside the file:
 
-<?php
-phpinfo();
+'<?php'
+'phpinfo();'
 
 Then i saved and close and I refreshed the http://18.118.33.67:80
 
