@@ -95,7 +95,62 @@ http://3.142.201.71/info.php
 ### RETRIEVING DATA FROM MYSQL DATABASE WITH PHP
 
 ![phpve](https://github.com/Oolabanji/DevOps_Projects/assets/136812420/0c39abe8-87a1-4fee-aab6-d22db04708d0)
+### Retrieving data from MySQL database with PHP
+First, I connected to the MySQL console using the root account:
+$ sudo mysql
+To create a new database, I run the following command from my MySQL console:
+
+$ mysql> CREATE DATABASE `banji_database`;
+Now I created a new user and granted it full privileges on the database I have just created.
+$ mysql>  CREATE USER 'lemp_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+mysql> exit
+I now  test if the new user has the proper permissions by logging in to the MySQL console again, this time using the custom user credentials:
+
+mysql -u lemp_user -p
+mysql> SHOW DATABASES;
+
+![lempdb](https://github.com/Oolabanji/test_/assets/136812420/9f14fe72-1bd7-45e2-82fd-c22362ce8ef7)
+Next, we’ll create a test table named todo_list. From the MySQL console, run the following statement:
 
 
+I CREATE TABLE banji_database.todo_list (item_id INT AUTO_INCREMENT,content VARCHAR(255),PRIMARY KEY(item_id));
+mysql> INSERT INTO banji_database.todo_list (content) VALUES ("My first important item");
+mysql> INSERT INTO banji_database.todo_list (content) VALUES ("My second important item");
+mysql> INSERT INTO banji_database.todo_list (content) VALUES ("My third important item");
+mysql> INSERT INTO banji_database.todo_list (content) VALUES ("My fourth important item");
+To confirm that the data was successfully saved to the table, I run:
+
+mysql>  SELECT * FROM lemp_database.todo_list;
+
+![lempmysql](https://github.com/Oolabanji/test_/assets/136812420/57c2fa9d-33db-4298-b0ea-3fc0e4c08de6)
+
+mysql> exit
+
+I created a PHP script that will connect to MySQL and query for the content.
+
+nano /var/www/florintechlemp/todo_list.php
 
 
+I copy this content into the todo_list.php script:
+
+'<?php'
+$user = "example_user";
+$password = "password";
+$database = "banji_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+
+http://3.133.118.221/todo_list.php
+
+![php4](https://github.com/Oolabanji/test_/assets/136812420/cfa2a8c0-c922-4e61-a6f1-aaac898af5e0)
